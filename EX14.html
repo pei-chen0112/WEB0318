@@ -3,49 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Borders and Backgrounds</title>
+    <title>Hello World Styles</title>
     <style>
-        /* General styling for the text and spacing */
-        .container {
-            font-family: 'Times New Roman', Times, serif;
+        body {
+            font-family: serif;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 40px;
+            background-color: #f0f0f0;
+        }
+
+        .box {
+            width: 500px;
+            padding: 10px 20px;
             font-size: 32px;
             font-weight: bold;
-            width: 450px; /* Adjust width as needed */
-            margin: 20px;
         }
 
-        /* Box 1: Light blue background with a red double border */
-        .box1 {
-            background-color: lightblue;
-            border: 5px double tomato; 
-            padding: 10px 15px;
-            margin-bottom: 20px;
+        .box-1 {
+            background-color: #add8e6;
+            border: 6px double #ff7f50;
         }
 
-        /* Box 2: Yellow background with a blue solid border and rounded corners */
-        .box2 {
-            background-color: yellow;
-            border: 3px solid dodgerblue;
-            border-radius: 12px; /* Creates the rounded corners */
-            padding: 10px 15px;
-            margin-bottom: 20px;
+        .box-2 {
+            background-color: #ffff00;
+            border: 3px solid #4169e1;
+            border-radius: 15px;
         }
 
-        /* Box 3: Green background with a thick gray dotted border */
-        .box3 {
-            background-color: mediumseagreen; 
-            border: 8px dotted gray;
-            padding: 10px 15px;
+        .box-3 {
+            background-color: #5cb85c;
+            border: 8px dotted #808080;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="box1">Hello World</div>
-        <div class="box2">Hello World</div>
-        <div class="box3">Hello World</div>
-    </div>
+    <div class="box box-1">Hello World</div>
+    <div class="box box-2">Hello World</div>
+    <div class="box box-3">Hello World</div>
 
 </body>
 </html>

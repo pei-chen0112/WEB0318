@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Borders and Backgrounds</title>
+    <style>
+        /* General styling for the text and spacing */
+        .container {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 32px;
+            font-weight: bold;
+            width: 450px; /* Adjust width as needed */
+            margin: 20px;
+        }
+
+        /* Box 1: Light blue background with a red double border */
+        .box1 {
+            background-color: lightblue;
+            border: 5px double tomato; 
+            padding: 10px 15px;
+            margin-bottom: 20px;
+        }
+
+        /* Box 2: Yellow background with a blue solid border and rounded corners */
+        .box2 {
+            background-color: yellow;
+            border: 3px solid dodgerblue;
+            border-radius: 12px; /* Creates the rounded corners */
+            padding: 10px 15px;
+            margin-bottom: 20px;
+        }
+
+        /* Box 3: Green background with a thick gray dotted border */
+        .box3 {
+            background-color: mediumseagreen; 
+            border: 8px dotted gray;
+            padding: 10px 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box1">Hello World</div>
+        <div class="box2">Hello World</div>
+        <div class="box3">Hello World</div>
+    </div>
+
+</body>
+</html>

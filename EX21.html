@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float and Inline-Block Example</title>
+    <style>
+        /* 基礎排版設定 */
+        body {
+            font-family: "Times New Roman", Times, serif; /* 圖片中看起來是襯線字體 */
+            padding: 20px;
+            background-color: #f4f4f9; /* 稍微加一點背景色讓白底容器更明顯 */
+        }
+
+        /* 模擬圖片中的白色卡片容器 */
+        .container {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 600px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* 模擬圖片外框的陰影 */
+            margin: 0 auto;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+
+        /* ---------------------------------------------------
+           1. 右側浮動區塊 (A float div with overflow auto)
+           --------------------------------------------------- */
+        .float-box {
+            float: right;          /* 讓區塊靠右浮動，左側文字會自動環繞 */
+            width: 120px;          /* 固定寬度 */
+            height: 140px;         /* 固定高度 */
+            border: 3px solid #689f38; /* 綠色邊框 */
+            overflow: auto;        /* 內容超過高度時自動出現捲軸 */
+            padding: 10px;
+            margin-left: 15px;     /* 與左側文字保持距離 */
+            margin-bottom: 5px;    /* 與下方文字保持距離 */
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        /* ---------------------------------------------------
+           2. 行內區塊 (Some inline-blocks)
+           --------------------------------------------------- */
+        .inline-block-word {
+            display: inline-block; /* 設定為 inline-block 才能設定邊框和背景，且不會強制換行 */
+            background-color: yellow; /* 黃色背景 */
+            border: 2px solid blue;   /* 藍色邊框 */
+            padding: 2px 4px;         /* 內距讓框框不要太貼文字 */
+            margin: 0 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="float-box">
+            A float div with overflow auto. A float div with overflow auto. A float div with overflow auto. A float div with overflow auto.
+        </div>
+
+        <p>
+            (Just long sentence.) Let me not to the marriage of true minds Admit impediments. 
+            <span class="inline-block-word">Love</span> is not love Which alters when it alteration finds, 
+            Or bends with the remover to remove: O, no! it is an ever-fix'ed mark, That looks on tempests and is never shaken; 
+            It is the star to every wand'ring bark, Whose worth's unknown, although his heighth be taken. 
+            <span class="inline-block-word">Love's</span> not Time's fool, though rosy lips and cheeks 
+            Within his bending sickle's compass come; 
+            <span class="inline-block-word">Love</span> alters not with his brief hours and weeks, 
+            But bears it out even to the edge of doom: If this be error and upon me proved, I never writ, nor no man ever loved.
+        </p>
+    </div>
+
+</body>
+</html>

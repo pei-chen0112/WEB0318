@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Div and Table</title>
+    <style>
+        /* 基礎排版設定 */
+        body {
+            font-family: serif; /* 圖片中的英文字體偏向 serif */
+            padding: 20px;
+        }
+
+        /* 表格整體樣式 */
+        table {
+            border-collapse: collapse;
+            width: 250px;
+            text-align: left;
+        }
+
+        /* 表格邊框與內距 */
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        /* 表格標題行樣式 */
+        th {
+            background-color: #666666; /* 深灰色背景 */
+            color: white;              /* 白色文字 */
+        }
+
+        /* 表格資料行樣式：使用 nth-child(odd) 讓單數行背景變成黃色 */
+        tbody tr:nth-child(odd) {
+            background-color: yellow;
+        }
+
+        /* 固定位置的 div 樣式 */
+        .fixed-box {
+            position: fixed;       /* 固定定位 */
+            top: 50px;             /* 距離上方 50px */
+            right: 50px;           /* 距離右側 50px */
+            border: 3px solid #689f38; /* 綠色邊框 */
+            padding: 10px;
+            width: 120px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>3</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="fixed-box">
+        This div element has position: fixed;
+    </div>
+
+</body>
+</html>

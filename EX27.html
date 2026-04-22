@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>響應式網頁佈局練習</title>
+    <style>
+        /* 基礎設定與背景 */
+        body {
+            background-color: #52b5fc; /* 模擬圖片中的藍色背景 */
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* 白色卡片容器 */
+        .card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 600px; /* 設定一個最大寬度以便在大螢幕上觀看 */
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* --- 區塊樣式 --- */
+        
+        /* 1. 上方綠色區塊 (永遠單列滿版) */
+        .header-section {
+            background-color: #a2d149;
+            height: 120px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        /* 2. 中間藍綠色區塊 (預設 3 欄) */
+        .middle-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 切成 3 等份 */
+            gap: 10px; /* 區塊之間的間距 */
+            margin-bottom: 10px;
+        }
+
+        .middle-box {
+            background-color: #00bcd4;
+            height: 100px;
+            border-radius: 4px;
+        }
+
+        /* 3. 下方淺灰色區塊 (預設 4 欄) */
+        .bottom-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 切成 4 等份 */
+            gap: 10px;
+        }
+
+        .bottom-box {
+            background-color: #e6eaeb;
+            height: 60px;
+            border-radius: 4px;
+        }
+
+        /* --- 響應式設計 (RWD) 斷點設定 --- */
+        
+        /* 當螢幕寬度小於或等於 480px 時，執行以下 CSS */
+        @media (max-width: 480px) {
+            
+            /* 中間區塊：從 3 欄變成 1 欄 (垂直堆疊) */
+            .middle-section {
+                grid-template-columns: 1fr; 
+            }
+
+            /* 下方區塊：從 4 欄變成 2 欄 (2x2 網格) */
+            .bottom-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="header-section"></div>
+
+        <div class="middle-section">
+            <div class="middle-box"></div>
+            <div class="middle-box"></div>
+            <div class="middle-box"></div>
+        </div>
+
+        <div class="bottom-section">
+            <div class="bottom-box"></div>
+            <div class="bottom-box"></div>
+            <div class="bottom-box"></div>
+            <div class="bottom-box"></div>
+        </div>
+    </div>
+
+</body>
+</html>

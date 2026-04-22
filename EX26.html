@@ -1,63 +1,51 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS 圖片樣式練習 - 完美對齊版</title>
-    <style>
-        body {
-            background-color: #f6f6f6;
-            font-family: sans-serif;
-            padding: 50px 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Image Styling Practice</title>
+  <style>
+    /* A simple flexbox container to align the images horizontally */
+    .image-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
 
-        .image-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: #ffffff;
-        }
+    /* Left Image: Rounded corners, no distortion */
+    .img-left {
+      width: 33%;
+      height: 300px;
+      border-radius: 18px;
+      object-fit: cover; /* This prevents the image from distorting */
+    }
 
-        /* 1. 左側圖片：寬度 33%、高度 300px、圓角 18px、填滿不變形 */
-        .img-left {
-            width: 33%;
-            height: 300px;
-            border-radius: 18px;
-            /* 關鍵：cover 會填滿框架並自動裁切多餘邊緣，解決留白問題 */
-            object-fit: cover; 
-        }
+    /* Center Image: Circular, no distortion */
+    .img-center {
+      width: 150px;
+      height: 150px;
+      border-radius: 150px; /* Alternatively, 50% works here to make a perfect circle */
+      object-fit: cover; /* This prevents the image from distorting */
+    }
 
-        /* 2. 中間圖片：正圓形 150px、不變形 */
-        .img-center {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid #2f2f2f;
-        }
-
-        /* 3. 右側圖片：寬度 33%、高度 300px、長方形變形 (Distortion) */
-        .img-right {
-            width: 33%;
-            height: 300px;
-            /* 故意不加 object-fit，圖片會被硬生生拉伸填滿框架，導致變形 */
-            object-fit: fill;
-        }
-    </style>
+    /* Right Image: Intentional distortion */
+    .img-right {
+      width: 33%;
+      height: 300px;
+      /* Notice the absence of object-fit: cover; this causes the natural distortion requested */
+    }
+  </style>
 </head>
 <body>
 
-    <div class="image-container">
-        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=800&q=80" alt="巴黎鐵塔-填滿不變形" class="img-left">
-        
-        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400&q=80" alt="風景-圓形" class="img-center">
-        
-        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=800&q=80" alt="巴黎鐵塔-拉伸變形" class="img-right">
-    </div>
+  <div class="image-container">
+    <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=600&q=80" alt="Eiffel Tower Left" class="img-left">
+    
+    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Landscape Center" class="img-center">
+    
+    <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=600&q=80" alt="Eiffel Tower Right" class="img-right">
+  </div>
 
 </body>
 </html>

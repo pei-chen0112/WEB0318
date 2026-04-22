@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS 圖片樣式練習 - 高度對齊版</title>
+    <title>CSS 圖片樣式練習 - 大小一致版</title>
     <style>
-        /* 容器排版 */
         .image-container {
             display: flex;
             align-items: center;
@@ -14,17 +13,20 @@
             padding: 20px;
             max-width: 900px;
             margin: 0 auto;
+            background-color: #f0f0f0; /* 加個淺色背景讓留白更明顯 */
         }
 
-        /* 1. 左側圖片：強制高度 300px、無變形、圓角 18px */
+        /* 1. 左側圖片：改用 contain 確保圖片內大小不變且不變形 */
         .img-left {
             width: 33%;
-            height: 300px; /* 遵照規範，與右邊同高 */
+            height: 300px;
             border-radius: 18px;
-            object-fit: cover; /* 關鍵！強制高度後必須加這個才不會變形 */
+            /* 關鍵修改：使用 contain 會保留完整圖片大小，但可能產生留白 */
+            object-fit: contain; 
+            background-color: #ddd; /* 留白區域的底色 */
         }
 
-        /* 2. 中間圖片：正圓形 150px、無變形 */
+        /* 2. 中間圖片：正圓形 150px (這張用 cover 最適合圓形裁切) */
         .img-center {
             width: 150px;
             height: 150px;
@@ -32,18 +34,17 @@
             object-fit: cover; 
         }
 
-        /* 3. 右側圖片：強制寬高 300px、產生變形 (不加 object-fit) */
+        /* 3. 右側圖片：強制寬高產生變形 */
         .img-right {
             width: 33%;
-            height: 300px; /* 與左邊同高 */
-            /* 故意不加 object-fit: cover，讓瀏覽器預設拉伸圖片產生 distortion 效果 */
+            height: 300px;
         }
     </style>
 </head>
 <body>
 
     <div class="image-container">
-        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=400&q=80" alt="巴黎鐵塔-無變形" class="img-left">
+        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=400&q=80" alt="巴黎鐵塔-Contain" class="img-left">
         
         <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400&q=80" alt="峽谷-圓形" class="img-center">
         

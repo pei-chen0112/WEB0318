@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS 圖片樣式練習</title>
+    <title>CSS 圖片樣式練習 - 高度對齊版</title>
     <style>
-        /* 建立一個容器讓圖片水平排列，方便對齊 */
+        /* 容器排版 */
         .image-container {
             display: flex;
             align-items: center;
@@ -16,40 +16,38 @@
             margin: 0 auto;
         }
 
-        /* 1. 左側圖片：無變形、圓角 18px */
+        /* 1. 左側圖片：強制高度 300px、無變形、圓角 18px */
         .img-left {
             width: 33%;
+            height: 300px; /* 遵照規範，與右邊同高 */
             border-radius: 18px;
-            /* 當只設定寬度時，高度會按比例自動縮放，自然不會變形 (no distortion) */
+            object-fit: cover; /* 關鍵！強制高度後必須加這個才不會變形 */
         }
 
-        /* 2. 中間圖片：正圓形、150px、無變形 */
+        /* 2. 中間圖片：正圓形 150px、無變形 */
         .img-center {
             width: 150px;
-            height: 150px; /* 圖片旁垂直標示的 150px 代表高度 */
-            border-radius: 50%; /* 將寬高相等的元素加上 50% 圓角，就會變成完美的正圓形 */
-            
-            /* 關鍵屬性！避免強制設定寬高後造成的變形 */
+            height: 150px;
+            border-radius: 50%;
             object-fit: cover; 
         }
 
-        /* 3. 右側圖片：強制寬高、產生變形 */
+        /* 3. 右側圖片：強制寬高 300px、產生變形 (不加 object-fit) */
         .img-right {
             width: 33%;
-            height: 300px;
-            /* 因為同時強制規定了不符比例的寬度與高度，且沒有使用 object-fit，
-               瀏覽器預設會將圖片「拉伸」填滿空間，導致變形 (distortion) */
+            height: 300px; /* 與左邊同高 */
+            /* 故意不加 object-fit: cover，讓瀏覽器預設拉伸圖片產生 distortion 效果 */
         }
     </style>
 </head>
 <body>
 
     <div class="image-container">
-        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=400&q=80" alt="巴黎鐵塔" class="img-left">
+        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=400&q=80" alt="巴黎鐵塔-無變形" class="img-left">
         
-        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400&q=80" alt="峽谷" class="img-center">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400&q=80" alt="峽谷-圓形" class="img-center">
         
-        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=400&q=80" alt="巴黎鐵塔變形" class="img-right">
+        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=400&q=80" alt="巴黎鐵塔-變形" class="img-right">
     </div>
 
 </body>

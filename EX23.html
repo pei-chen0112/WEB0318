@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Spec Button</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 基礎重置，確保預設樣式不干擾 */
+        body {
+            padding: 50px;
+            background-color: #f6f6f6; /* 使用圖片左下角的 header bg color 方便辨識 */
+        }
+
+        .btn-view-info {
+            /* 1. 尺寸與圓角 (h22 / R8) */
+            height: 22px;
+            border-radius: 8px;
+            box-sizing: border-box; /* 確保邊框包含在 22px 的高度內 */
+
+            /* 2. 背景與邊框 */
+            background-color: #ffffff;
+            /* 設計稿寫 outline，但實務上用 border 配合 border-radius 效果最好 */
+            border: 1px solid #2f2f2f; 
+
+            /* 3. 字體樣式 */
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400; /* Regular */
+            font-size: 13px;
+            color: #2f2f2f;
+
+            /* 4. 排版與對齊 (讓文字垂直置中) */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px; /* 設計稿未標示按鈕左右內距，給予適當的留白 */
+            
+            /* 5. 互動樣式 */
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        /* 加上基礎的 hover 效果，提升使用者體驗 */
+        .btn-view-info:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="btn-view-info">查看資訊</button>
+
+</body>
+</html>

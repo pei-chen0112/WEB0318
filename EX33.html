@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        /* 簡單設定一下字體與間距，盡量還原圖片中的樣式 */
+        body {
+            font-family: "Times New Roman", Times, serif;
+            margin: 30px;
+            font-size: 18px;
+        }
+        input, button {
+            font-size: 16px;
+            padding: 2px 5px;
+        }
+        #message {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
 
+    <p>Please input a number between 150 and 300:</p>
+
+    <input type="text" id="numInput">
+    <button onclick="validateInput()">Submit</button>
+
+    <p id="message"></p>
+
+    <script>
+        function validateInput() {
+            // 1. 取得輸入框中的值，並將 HTML 元素綁定到變數
+            let inputValue = document.getElementById("numInput").value;
+            let textOutput = document.getElementById("message");
+            
+            // 2. 將輸入的文字轉換為數字型別，以便進行數學大小比較
+            let num = Number(inputValue);
+
+            // 3. 邏輯判斷 (表單驗證核心)
+            // 先防呆：檢查輸入的是否真的為數字，或者是否為空值
+            if (inputValue === "" || isNaN(num)) {
+                textOutput.innerHTML = "Not a valid number";
+            } 
+            // 檢查是否小於 150
+            else if (num < 150) {
+                textOutput.innerHTML = "Value too small";
+            } 
+            // 檢查是否大於 300
+            else if (num > 300) {
+                textOutput.innerHTML = "Value too large";
+            } 
+            // 若以上皆非，代表數字介於 150 到 300 之間
+            else {
+                textOutput.innerHTML = "Input OK";
+            }
+        }
+    </script>
+
+</body>
+</html>

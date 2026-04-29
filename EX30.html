@@ -1,38 +1,65 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的測試網頁</title>
+    <title>Button Interaction</title>
     <style>
-        body {
-            font-family: "Microsoft JhengHei", sans-serif;
+        /* 簡單的排版設定，盡量還原圖片中的樣式 */
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 150px;
             text-align: center;
-            margin-top: 100px;
-            background-color: #f0f8ff;
+            font-family: "Times New Roman", Times, serif; /* 圖片中的字體偏向襯線體 */
         }
-        h1 {
-            color: #333;
+
+        #displayText {
+            font-size: 24px;
+            color: black;
+            margin-bottom: 20px;
         }
-        .message {
-            color: #0066cc;
-            font-size: 1.2em;
-            padding: 30px;
-            border: 2px dashed #0066cc;
-            display: inline-block;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+        button {
+            padding: 5px 15px;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-    <h1>🎉 部署成功！</h1>
-    <div class="message">
-        <p>這是一段測試用的 HTML 程式碼。</p>
-        <p>如果您能看到這個畫面，代表您的網頁已經順利更新囉！</p>
+    <div class="container">
+        <div id="displayText">Hello</div>
+        <button id="actionButton">Button</button>
     </div>
+
+    <script>
+        // 取得 HTML 元素的參考
+        const textElement = document.getElementById('displayText');
+        const buttonElement = document.getElementById('actionButton');
+
+        // 1. 滑鼠移入事件 (Mouse over)
+        // 當滑鼠停留在按鈕上時，將文字顏色改為洋紅色 (Magenta)
+        buttonElement.addEventListener('mouseover', function() {
+            textElement.style.color = 'magenta';
+        });
+
+        // 2. 滑鼠點擊事件 (Mouse click)
+        // 當滑鼠點擊按鈕時，改變文字內容，顏色保持洋紅色
+        buttonElement.addEventListener('click', function() {
+            textElement.innerHTML = 'Mouse Click';
+            textElement.style.color = 'magenta'; 
+        });
+
+        // (補充) 滑鼠移出事件 (Mouse out)
+        // 為了讓體驗更完整，設定當滑鼠移開且還沒點擊過時，顏色恢復為黑色
+        buttonElement.addEventListener('mouseout', function() {
+            if (textElement.innerHTML === 'Hello') {
+                textElement.style.color = 'black';
+            }
+        });
+    </script>
 
 </body>
 </html>

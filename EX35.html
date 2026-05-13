@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Object Properties</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>JavaScript Object Task</h2>
+
+  <h3>1. Original Properties (原本的所有屬性):</h3>
+  <p id="original-props"></p>
+
+  <h3>2. Object after deleting 'age' (刪除 age 後的物件):</h3>
+  <pre id="modified-obj"></pre>
+
+  <script>
+    // 題目提供的物件
+    var Person = {
+      firstName : "Tony",
+      lastName : "Lee",
+      age : 50,
+      eyeColor : "Blue"
+    };
+
+    // 任務 1: 列出所有屬性 (Properties)
+    // 取得物件的 keys 並用逗號串接顯示在網頁上
+    var properties = Object.keys(Person).join(", ");
+    document.getElementById("original-props").textContent = properties;
+
+    // 任務 2: 刪除 age 屬性
+    delete Person.age;
+
+    // 任務 3: 印出刪除屬性後的物件
+    // 使用 JSON.stringify 並加上縮排格式 (null, 2) 讓網頁顯示更清楚
+    document.getElementById("modified-obj").textContent = JSON.stringify(Person, null, 2);
+  </script>
+</body>
+</html>
